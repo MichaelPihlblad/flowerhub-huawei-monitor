@@ -1,0 +1,5 @@
+huawei-solar
+pyshark
+pymodbus
+paho-mqtt
+homeassistant-mqtt-binding
