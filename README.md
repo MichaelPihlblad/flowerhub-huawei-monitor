@@ -7,6 +7,7 @@ Python script to monitor modbus tcp communication between Flowerhub and Huawei i
 PREREQUISITES
 ----
 * The script needs access to the Modbus TCP communication between flowerhub and the Huawei inverter, e.g. port mirroring in a switch to the device running this script.
+* [Tshark](https://tshark.dev/setup/install/) or Wireshark installed on the device (used by pyshark to sniff the ethernet traffic)  
 
 HOWTO
 ----
