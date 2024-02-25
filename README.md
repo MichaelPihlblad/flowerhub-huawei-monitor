@@ -3,6 +3,11 @@ Python script to monitor modbus tcp communication between Flowerhub and Huawei i
 
 [Flower](https://www.flower.se) is the company providing the [Flowerhub device](https://flowerhub.se) and the power grid balancing support service.
 
+BACKGROUND / USE CASE
+----
+Flower provides balancing service to the Swedish power grid. As a home owner with a high voltage battery it is possible to become a provider in their balancing service. This requires that Flower gets full access and control of the inverter, the Huawei inverter does not accept a second connection on the Modbus TCP port, and currently there is no API in either the flowerhub device or a web based api provided by Flower. Flower provides a dashboard in their web portal but currecntly it does not provide much data, and not in real time.
+
+This means that currently when becoming a provider to Flower you are completely blind to what is happening with your battery. This script tries to mitigate that and provide at least some information to what is going on with the battery.
 
 PREREQUISITES
 ----
