@@ -277,7 +277,7 @@ class MqttHandler:
         if (request_response.enum):
             ha_options_enum = list(request_response.enum.__members__.keys())
             ha_device_class = HaDeviceClass.ENUM
-            unit = ""  # unit must be unset if enum in HA
+            unit = None  # unit must be unset if enum in HA
         
         # TODO: Add more device classes ??  ha_mqtt.util.HaDeviceClass
         # Sensor: https://www.home-assistant.io/integrations/sensor/#device-class
@@ -292,6 +292,7 @@ class MqttHandler:
         # Create mqtt sensor (will publish homeassistant discovery so requires connection to broker)
         settings = ha_mqtt.mqtt_device_base.MqttDeviceSettings(name, MQTT_TOPIC+'/'+name_reg_str, self.client, self.ha_device)        
         sensor = ha_mqtt.mqtt_sensor.MqttSensor(settings, unit=unit, device_class=ha_device_class, send_only=True)
+        
         if ha_options_enum: 
             sensor.add_config_option("options", ha_options_enum)
         sensor.add_config_option("force_update", True) # forces HA to update value even if unchanged
@@ -329,7 +330,7 @@ class MqttHandler:
         if sensor:
             sensor.publish_state(value)
             logging.info("MQTT Published " + request_response.register_id + '  ' + sensor.name + '\tvalue: '
-                         + str(value) + ' ' + sensor.unit_of_measurement )    
+                         + str(value) + ' ' + str(sensor.unit_of_measurement or "") )    
         else:
             logging.error("Failed to add MQTT Homeassistant sensor for modbus register: "
                            + request_response.register_id + " " + request_response.register_name)
