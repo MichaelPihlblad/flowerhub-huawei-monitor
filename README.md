@@ -19,3 +19,6 @@ HOWTO
 1. Install the script dependencies `python setup.py install` or `pip install -r requirements.txt`
 2. Modify the config options in the script, e.g. network interface where modbus traffic is available, hostname to inverter and mqtt broker etc.
 3. Run the script `./flowerhub_monitor.py`
+
+
+**_See the [wiki](https://github.com/MichaelPihlblad/flowerhub-huawei-monitor/wiki)_** for more info
