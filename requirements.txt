@@ -2,4 +2,4 @@ huawei-solar
 pyshark
 pymodbus
 paho-mqtt
-homeassistant-mqtt-binding
+homeassistant-mqtt-binding==2.0.3
